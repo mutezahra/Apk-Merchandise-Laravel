@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Products Pages</h1>
+                        <h1> Create Products Pages</h1>
                     </div>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                         <ol class="breadcrumb text-right">
                             <li><a href="{{url('dashboard')}}">Dashboard</a></li>
                             <li><a href="#">Products</a></li>
-                            <li class="active">Data Products</li>
+                            <li class="active">Create Products</li>
                         </ol>
                     </div>
                 </div>

@@ -97,23 +97,15 @@ class userC extends Controller
 
     public function destroy($id)
     {
-    //     $LogM = LogM::create([
-    //         'id_user' => Auth::user()->id,
-    //         'activity' => 'User Menghapus Data User'
-    //     ]);
-    // User::where('id', $id)->delete();
-
-    // return redirect()->route('users.index')->with('success', 'User Berhasil Dihapus');
-    
     $LogM = LogM::create([
         'id_user' => Auth::user()->id,
         'activity' => 'User Menghapus users'
     ]);
     LogM::where('id_user', $id)->delete();
-// LogM::where('id_user', $id)->delete();
-User::where('id', $id)->delete();
+    // LogM::where('id_user', $id)->delete();
+    User::where('id', $id)->delete();
 
-return redirect()->route('users.index')->with('success', 'User Berhasil Dihapus');
+    return redirect()->route('users.index')->with('success', 'User Berhasil Dihapus');
     }
 
 

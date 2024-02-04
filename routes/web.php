@@ -34,7 +34,8 @@ Route::get('laporan', [LaporanC::class, 'index'])->name('laporan');
 Route::get('/laporan/filter', [LaporanC::class, 'filter'])->name('laporan.filter');
 Route::get('/laporan/export', [LaporanC::class, 'export'])->name('laporan.export');
 
-Route::get('transactions/pdf2',  [TransactionsC::class, 'pdf2'])->name('transactions.pdf2')->middleware('userAkses:admin,owner');
+Route::get('products/export',  [ProductsC::class, 'export'])->name('products.export')->middleware('userAkses:admin');
+Route::get('transactions/pdf',  [TransactionsC::class, 'pdf2'])->name('transactions.pdf')->middleware('userAkses:admin');
 Route::get('/pertanggal/{tgl_awal}/{tgl_akhir}', [TransactionsC::class, 'pertanggal'])->name('transactions.pertanggal')->middleware('userAkses:admin,owner');
 Route::get('/transactions/struk/{id}', [TransactionsC::class,'Struk'])->name('transactions.struk')->middleware('userAkses:kasir,admin');
 

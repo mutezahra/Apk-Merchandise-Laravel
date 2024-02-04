@@ -7,7 +7,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Kategori Pages</h1>
+                        <h1>Edit Products Pages</h1>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Users Pages</h1>
+                        <h1>Edit Transactions Pages</h1>
                     </div>
                 </div>
             </div>
@@ -17,8 +17,8 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="{{url('dashboard')}}">Dashboard</a></li>
-                            <li><a href="#">Users</a></li>
-                            <li class="active">Data Users</li>
+                            <li><a href="#">Transactions</a></li>
+                            <li class="active">Edit Transactions</li>
                         </ol>
                     </div>
                 </div>

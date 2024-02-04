@@ -169,6 +169,7 @@
                         <div class="user-menu dropdown-menu">
                                    <a class="nav-link" href="{{url('profile')}}"><i class="fa fa-users "></i>Profile</a>
                             <a class="nav-link" href="{{url('logout')}}"><i style="color: red" class="fa fa-power-off "></i>Logout</a>
+                            
                      
                         </div>
                     </div>

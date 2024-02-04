@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daftar Transaksi</title>
+    <title>Daftar Products</title>
 
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
@@ -25,7 +25,7 @@
 h3 {
     text-align: center;
     background-color: ;
-    color: #08CCCA;
+    color: #000000;
     padding: 10px;
 }
 
@@ -38,11 +38,11 @@ table {
 th, td {
     border: 1px solid #000000;
     padding: 5px;
-    font-size: 12px;
+    font-size: 9px
 }
 
 th {
-    background-color: #08CCCA;
+    background-color: #ffffff;
     color: #0000000;
 }
 
@@ -58,33 +58,29 @@ tr:hover {
     </style>
 </head>
 <body>
-    <h3>DAFTAR TRANSAKSI</h3>
+    <h3>DAFTAR PRODUK</h3>
     <table id="myTable">
         <thead>
             <tr>
-                <th>Nomor Unik</th>
-                <th>Nama Pelanggan</th>
                 <th>Nama Produk</th>
+                <th>Kategori</th>
                 <th>Harga Produk</th>
-                <th>Qty</th>
-                <th>Total Harga</th>
-                <th>Uang Bayar</th>
-                <th>Uang Kembali</th>
-                <th>Tanggal</th>
+                <th>Deskripsi</th>
+                <th>Stok</th>
+                <th>Tanggal Masuk</th>
+                
             </tr>
         </thead>
         <tbody>
-            @foreach ($transactionsM as $data)
+            @foreach ($products as $p)
             <tr>
-                <td>{{ $data->nomor_unik }}</td>
-                <td>{{ $data->nama_pelanggan }}</td>
-                <td>{{ $data->nama_produk }}</td>
-                <td>{{ $data->harga_produk }}</td>
-                <td>{{ $data->qty }}</td>
-                <td>{{ $data->total_harga }}</td>
-                <td>{{ $data->uang_bayar }}</td>
-                <td>{{ $data->uang_kembali }}</td>
-                <td>{{ $data->tanggal_trans}}</td>
+                <td>{{ $p->nama_produk}}</td>
+                <td>{{ $p->category->kategori }}</td>
+                <td>{{ $p->harga_produk }}</td>
+                <td>{{ $p->dproduk }}</td>
+                <td>{{ $p->stok }}</td>
+                <td>{{ $p->tanggal_masuk}}</td>
+                
                 @endforeach
         </tbody>
 

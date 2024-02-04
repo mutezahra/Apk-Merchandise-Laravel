@@ -7,7 +7,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Users Pages</h1>
+                        <h1> Create Users Pages</h1>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                         <ol class="breadcrumb text-right">
                             <li><a href="{{url('dashboard')}}">Dashboard</a></li>
                             <li><a href="#">Users</a></li>
-                            <li class="active">Data Users</li>
+                            <li class="active">Create  Users</li>
                         </ol>
                     </div>
                 </div>

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\ProductsM;
 use App\Models\KategoriM;
 use App\Models\LogM;
+use App\Models\TransactionsM;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use PDF;
 
 class ProductsC extends Controller
 {
@@ -183,4 +185,45 @@ if ($file) {
         ProductsM::where('id', $id)->delete();
         return redirect()->route('products.index')->with('success', 'Data Produk Berhasil Dihapus');
     }
+
+    // public function pdf($id){
+
+    //     $log = LogM::create([
+    //         'id_user' =>Auth::user()->id,
+    //         'activity' => 'user melihat halaman PDF Satu transaksi'
+    //     ]);
+    //     $TransactionsM = TransactionsM::select('transactions.*', 'products.*', 'transactions.id AS id_trans')
+    //     ->join('products', 'products.id', '=', 'transactions.id_produk')->where('transactions.id',$id)->get();
+    //     $pdf= Pdf ::loadView('products_pdf',['TransactionsM'=>$TransactionsM]);
+    //    return $pdf->stream('transactions.pdf');
+
+    // }
+
+
+    public function export(Request $request)
+    {
+        $vcari = $request->input('search');
+    
+        $query = ProductsM::select('products.*', 'kategori.*', 'products.id')
+            ->join('kategori', 'kategori.id', '=', 'products.id_kategori');
+    
+        if ($vcari) {
+            $query->where(function ($q) use ($vcari) {
+                $q->where('nama_produk', 'like', '%' . $vcari . '%')
+                    ->orWhere('harga_produk', 'like', '%' . $vcari . '%')
+                    ->orWhere('stok', 'like', '%' . $vcari . '%')
+                    ->orWhere('kategori.kategori', 'like', '%' . $vcari . '%');
+            });
+        }
+    
+        $products = $query->get();
+    
+        $pdf = PDF::loadView('pdf.products_pdf', compact('products', 'vcari'));
+        return $pdf->stream();
+    }
+    
+    
+    
+
+    
 }

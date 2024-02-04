@@ -33,6 +33,7 @@ class ProductsM extends Model
              'tanggal_masuk'     => $this->tanggal_masuk,
              'nama_produk'     => $this->nama_produk,
              'harga_produk'     => $this->harga_produk,
+             'kategori'     => $this->kategori,
              
          ];
      }

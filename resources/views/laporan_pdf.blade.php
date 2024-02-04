@@ -38,11 +38,12 @@ table {
 th, td {
     border: 1px solid #000000;
     padding: 10px;
+    font-size: 9px;
 }
 
 th {
-    background-color: #08CCCA;
-    color: #0000000;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 tr:nth-child(even) {
@@ -54,10 +55,35 @@ tr:nth-child(even) {
 tr:hover {
             background-color: #000000;
         }
+
+
+
+
+/* Add this style for the second table with tfoot */
+table.summary-table {
+    width: 100%;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    margin-top: 10px; /* Adjust the margin as needed */
+}
+
+/* Style for tfoot in the second table */
+table.summary-table tfoot td {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Ensure the total Keseluruhan text is centered */
+table.summary-table tfoot td[colspan="10"] {
+    text-align: center;
+}
     </style>
 </head>
 <body>
-    <h3>DAFTAR TRANSAKSI U-DAEBAK</h3>
+    <h3>LAPORAN TRANSAKSI</h3>
     <table id="">
         <thead>
             <tr>
@@ -95,11 +121,10 @@ tr:hover {
         </tbody>
 
     </table>
-    <table>
-    <tfoot>
+    <table class="summary-table">
+        <tfoot>
             <tr>
-                <td >Total Keseluruhan :</td>
-                <td colspan="3">{{ $totalHargaProduk }}</td>
+                <td colspan="10">Total Keseluruhan : {{$totalHargaProduk}}</td>
             </tr>
         </tfoot>
     </table>

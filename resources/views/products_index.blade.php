@@ -35,6 +35,7 @@
         </a>
         </form>
     <a href="{{url('products/create')}}" class="btn btn-primary mt-4 mb-4">Tambah Data + </a>
+    <a href="{{url('products/export')}}" class="btn btn-primary mt-4 mb-4">Export PDF </a>
     <div class="animated fadeIn">
         <div class="row">
             @foreach($products as $p)

@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <button type="submit" class="btn btn-primary">Cari Data</button>
-                                    <button type="button" class="btn btn-default btn-close" onclick="cancelFilter()">Cancel</button>
+                                    <button type="button" class="btn btn-info btn-close" onclick="cancelFilter()">Cancel</button>
                                 </div>
                             </div>
                         </form>

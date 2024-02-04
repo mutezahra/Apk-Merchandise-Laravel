@@ -83,10 +83,6 @@
                               
                                 <td>{{ $data->tanggal_trans}}</td>
 
-
-
-
-                            
                               <td>
                                 @if (Auth::user()->role == 'kasir')
                                 <a href="{{route('transactions.struk',['id' =>$data->id_trans])}}"class="btn btn-outline-primary"><i class="menu icon fa fa-print"></i></a>
@@ -94,15 +90,23 @@
                                 @endif
                                 @if (Auth::user()->role == 'admin')
                                 <a href="{{ route('transactions.edit', ['id' => $data->id_trans]) }}" class="btn btn-outline-warning"><i class="menu icon fa fa-edit"></i></a>
-                              
-              
                                 <!-- Button untuk memunculkan modal konfirmasi -->
-                            <button type="button" class="btn btn-xs btn-outline-danger" data-toggle="modal" data-target="#deleteProductModal">
-                                <i class="menu icon fa fa-trash"></i></a>
-                              </button>
-              
+                                <a href="{{ route('users.destroy', $data->id) }}"
+                                    class="btn btn-danger"
+                                    onclick="event.preventDefault();
+                                                if (confirm('Apakah anda yakin ingin menghapus?')) {
+                                                    document.getElementById('delete-form-{{ $data->id }}').submit();
+                                                }">
+                                    <i class="menu-icon fa fa-trash"></i>
+                                </a>
+                                <form id="delete-form-{{ $data->id }}"
+                                    action="{{ route('users.destroy', $data->id) }}" method="POST"
+                                    style="display: none;">
+                                    @method('DELETE')
+                                    @csrf
+                                </form>
                                   <!-- Modal konfirmasi -->
-                                  <div class="modal fade" id="deleteProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal fade" id="deleteTransactionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                       <div class="modal-content">
                                           <div class="modal-header">
